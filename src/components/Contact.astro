@@ -1,0 +1,118 @@
+---
+const phoneIcon = `<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 6h6l4 10-5 4a20 20 0 009 9l4-5 10 4v6a4 4 0 01-4 4C20 36 12 28 6 18a4 4 0 014-4z"/></svg>`;
+const emailIcon = `<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="10" width="36" height="28" rx="3"/><path d="M6 14l18 12 18-12"/></svg>`;
+const clockIcon = `<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="18"/><path d="M24 14v10l7 7"/></svg>`;
+const pinIcon = `<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 44s16-12 16-24a16 16 0 10-32 0c0 12 16 24 16 24z"/><circle cx="24" cy="20" r="6"/></svg>`;
+---
+
+<section class="py-20 md:py-28 bg-white" id="contact">
+  <div class="mx-auto max-w-300 px-6">
+    <div class="text-center mb-16">
+      <p class="section-label mb-3" data-reveal="up">Contact</p>
+      <h2 class="section-title text-3xl md:text-5xl" data-reveal="up" data-delay="1">
+        Demandez votre <em>devis gratuit</em>
+      </h2>
+      <p class="mt-4 text-neutral-600 max-w-md mx-auto" data-reveal="up" data-delay="2">
+        Décrivez-nous votre besoin et on vous recontacte rapidement avec un devis clair et sans engagement.
+      </p>
+    </div>
+
+    <div class="grid gap-10 md:grid-cols-2 max-w-4xl mx-auto">
+      <!-- Form -->
+      <form class="space-y-4" id="contact-form" data-reveal="left">
+        <div class="grid gap-4 sm:grid-cols-2">
+          <input
+            type="text"
+            placeholder="Votre nom"
+            required
+            class="w-full rounded-xl border border-neutral-200 bg-neutral-50 px-4 py-3.5 text-sm text-neutral-900 placeholder:text-neutral-400 outline-none focus:border-primary transition-colors"
+          />
+          <input
+            type="tel"
+            placeholder="Téléphone"
+            required
+            class="w-full rounded-xl border border-neutral-200 bg-neutral-50 px-4 py-3.5 text-sm text-neutral-900 placeholder:text-neutral-400 outline-none focus:border-primary transition-colors"
+          />
+        </div>
+        <input
+          type="email"
+          placeholder="Votre email"
+          required
+          class="w-full rounded-xl border border-neutral-200 bg-neutral-50 px-4 py-3.5 text-sm text-neutral-900 placeholder:text-neutral-400 outline-none focus:border-primary transition-colors"
+        />
+        <select
+          class="w-full rounded-xl border border-neutral-200 bg-neutral-50 px-4 py-3.5 text-sm text-neutral-400 outline-none focus:border-primary transition-colors appearance-none"
+        >
+          <option value="" disabled selected>Type de prestation</option>
+          <option>Tonte de pelouse</option>
+          <option>Taille de haies</option>
+          <option>Débroussaillage</option>
+          <option>Nettoyage de gouttières</option>
+          <option>Enlèvement d'encombrants</option>
+          <option>Évacuation déchets verts</option>
+          <option>Débarras</option>
+          <option>Petits travaux</option>
+          <option>Autre</option>
+        </select>
+        <textarea
+          placeholder="Décrivez votre besoin..."
+          rows="4"
+          class="w-full rounded-xl border border-neutral-200 bg-neutral-50 px-4 py-3.5 text-sm text-neutral-900 placeholder:text-neutral-400 outline-none focus:border-primary transition-colors resize-none"
+        ></textarea>
+        <button
+          type="submit"
+          class="btn-primary w-full justify-center"
+        >
+          Envoyer ma demande de devis
+        </button>
+        <p class="text-xs text-center text-neutral-400">Gratuit et sans engagement</p>
+      </form>
+
+      <!-- Contact info -->
+      <div class="flex flex-col justify-center gap-6">
+        <div class="service-card service-card--a p-4 flex items-center gap-5" data-reveal="right" data-delay="1">
+          <div class="service-icon shrink-0" set:html={phoneIcon} />
+          <div>
+            <p class="text-sm text-neutral-400">Appelez-nous directement</p>
+            <a href="tel:0745270811" class="text-xl font-bold text-neutral-900 hover:text-primary transition-colors" style="font-family: var(--font-heading);">07 45 27 08 11</a>
+          </div>
+        </div>
+
+        <div class="service-card service-card--b p-4 flex items-center gap-5" data-reveal="right" data-delay="2">
+          <div class="service-icon shrink-0" set:html={emailIcon} />
+          <div>
+            <p class="text-sm text-neutral-400">Par email</p>
+            <a href="mailto:DD.Multiservices@gmail.com" class="text-base font-semibold text-neutral-900 hover:text-primary transition-colors">DD.Multiservices@gmail.com</a>
+          </div>
+        </div>
+
+        <div class="service-card service-card--a p-4 flex items-center gap-5" data-reveal="right" data-delay="3">
+          <div class="service-icon shrink-0" set:html={clockIcon} />
+          <div>
+            <p class="text-sm text-neutral-400">Devis gratuit</p>
+            <p class="text-base font-semibold text-neutral-900">Réponse sous 24h</p>
+          </div>
+        </div>
+
+        <div class="service-card service-card--b p-4 flex items-center gap-5" data-reveal="right" data-delay="4">
+          <div class="service-icon shrink-0" set:html={pinIcon} />
+          <div>
+            <p class="text-sm text-neutral-400">Zone d'intervention</p>
+            <p class="text-base font-semibold text-neutral-900">Bayeux, Bessin, Caen et alentours</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById('contact-form');
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+    btn.textContent = '\u2713 Demande envoyée !';
+    btn.disabled = true;
+    btn.style.opacity = '0.6';
+  });
+</script>

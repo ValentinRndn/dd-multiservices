@@ -1,0 +1,51 @@
+---
+const faqs = [
+  {
+    question: "Comment demander un devis ?",
+    answer: "Appelez-nous au 07 45 27 08 11, envoyez un email à DD.Multiservices@gmail.com ou remplissez le formulaire sur cette page. Réponse rapide avec un devis clair et gratuit.",
+  },
+  {
+    question: "Est-ce que le matériel est fourni ?",
+    answer: "Oui, on intervient avec tout le matériel professionnel nécessaire. Vous n'avez rien à prévoir.",
+  },
+  {
+    question: "Vous évacuez les déchets ?",
+    answer: "Oui, déchets verts et encombrants évacués sur demande. Le chantier est toujours laissé propre.",
+  },
+  {
+    question: "Dans quel périmètre intervenez-vous ?",
+    answer: "Nous sommes basés à Bayeux et intervenons dans tout le Bessin, sur la Côte de Nacre et jusqu'à Caen — environ 1h à 1h30 autour de Bayeux.",
+  },
+  {
+    question: "Quels types de clients ?",
+    answer: "Particuliers, propriétaires de résidences secondaires sur la côte normande, personnes âgées et petits professionnels autour de Bayeux et du Calvados.",
+  },
+  {
+    question: "Combien coûte une intervention ?",
+    answer: "Le tarif dépend de la surface, du type de travail et de l'évacuation éventuelle. Le devis est gratuit et sans engagement.",
+  },
+];
+---
+
+<section class="py-20 md:py-28 bg-neutral-100" id="faq">
+  <div class="mx-auto max-w-160 px-6">
+    <div class="text-center mb-14">
+      <p class="section-label mb-3" data-reveal="up">FAQ</p>
+      <h2 class="section-title text-3xl md:text-4xl" data-reveal="up" data-delay="1">Questions <em>fréquentes</em></h2>
+    </div>
+
+    <div class="space-y-3">
+      {faqs.map((faq, i) => (
+        <details class="group bg-white border border-neutral-200 overflow-hidden" style="border-radius: 0 24px 0 24px;" data-reveal="up" data-delay={String(i + 1)}>
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-6 px-6 py-5 text-sm font-medium text-neutral-900 transition-colors">
+            {faq.question}
+            <svg class="shrink-0 w-5 h-5 text-primary transition-transform duration-300 group-open:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 8l5 5 5-5" />
+            </svg>
+          </summary>
+          <p class="px-6 pb-5 -mt-1 text-sm leading-relaxed text-neutral-500">{faq.answer}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

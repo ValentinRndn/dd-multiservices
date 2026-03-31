@@ -1,0 +1,79 @@
+---
+import extAvant from "../assets/images/exterieur_avant.webp";
+import extApres from "../assets/images/exterieur_apres.webp";
+import jardinAvant from "../assets/images/jardin_avant.webp";
+import jardinApres from "../assets/images/jardin_apres.webp";
+
+const sliders = [
+  { before: extAvant.src, after: extApres.src, label: "Extérieur" },
+  { before: jardinAvant.src, after: jardinApres.src, label: "Jardin" },
+];
+---
+
+<section class="py-20 md:py-28 bg-neutral-100" id="realisations">
+  <div class="mx-auto max-w-300 px-6">
+    <div class="text-center mb-16">
+      <p class="section-label mb-3" data-reveal="up">Nos réalisations</p>
+      <h2 class="section-title text-3xl md:text-5xl" data-reveal="up" data-delay="1">
+        Le résultat <em>parle de lui-même</em>
+      </h2>
+      <p class="mt-4 text-neutral-600 max-w-md mx-auto" data-reveal="up" data-delay="2">
+        Faites glisser le curseur pour voir la différence avant et après notre intervention.
+      </p>
+    </div>
+
+    <div class="grid gap-8 md:grid-cols-2">
+      {sliders.map((s, i) => (
+        <div data-reveal="scale" data-delay={String(i + 1)}>
+          <div class="ba-slider" data-ba-slider>
+            <img src={s.after} alt={`${s.label} - Après`} class="ba-img" />
+            <div class="ba-before" data-ba-before style="clip-path: inset(0 50% 0 0);">
+              <img src={s.before} alt={`${s.label} - Avant`} class="ba-img" />
+            </div>
+            <div class="ba-handle" data-ba-handle style="left: 50%;"></div>
+            <span class="ba-label ba-label--before">Avant</span>
+            <span class="ba-label ba-label--after">Après</span>
+          </div>
+          <p class="mt-3 text-center text-sm font-medium text-neutral-600">{s.label}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('[data-ba-slider]').forEach((slider) => {
+    const before = slider.querySelector('[data-ba-before]') as HTMLElement;
+    const handle = slider.querySelector('[data-ba-handle]') as HTMLElement;
+    let isDragging = false;
+
+    function setPosition(x: number) {
+      const rect = (slider as HTMLElement).getBoundingClientRect();
+      let pct = ((x - rect.left) / rect.width) * 100;
+      pct = Math.max(2, Math.min(98, pct));
+      before.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
+      handle.style.left = `${pct}%`;
+    }
+
+    slider.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      setPosition((e as MouseEvent).clientX);
+    });
+
+    slider.addEventListener('touchstart', (e) => {
+      isDragging = true;
+      setPosition((e as TouchEvent).touches[0].clientX);
+    }, { passive: true });
+
+    window.addEventListener('mousemove', (e) => {
+      if (isDragging) setPosition(e.clientX);
+    });
+
+    window.addEventListener('touchmove', (e) => {
+      if (isDragging) setPosition(e.touches[0].clientX);
+    }, { passive: true });
+
+    window.addEventListener('mouseup', () => { isDragging = false; });
+    window.addEventListener('touchend', () => { isDragging = false; });
+  });
+</script>

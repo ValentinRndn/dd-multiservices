@@ -1,0 +1,60 @@
+---
+import logo from "../assets/images/logo_dd_multiservices.png";
+---
+
+<footer class="section-dark">
+  <div class="py-14">
+    <div class="mx-auto max-w-300 px-6">
+
+      <!-- Top: logo + nav + contact -->
+      <div class="grid gap-10 md:grid-cols-3">
+
+        <!-- Brand -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <img src={logo.src} alt="DD.Multiservices" class="h-12 w-auto" />
+            <span class="text-base font-bold text-white" style="font-family: var(--font-heading);">DD.Multiservices</span>
+          </div>
+          <p class="text-sm text-white/40 leading-relaxed">
+            Entretien espaces verts, débarras et multiservices à Bayeux et dans le Calvados.
+          </p>
+        </div>
+
+        <!-- Navigation -->
+        <div>
+          <p class="text-xs font-semibold text-white/60 uppercase tracking-widest mb-4">Navigation</p>
+          <div class="flex flex-col gap-2.5 text-sm text-white/40">
+            <a href="#services" class="hover:text-white transition-colors">Services</a>
+            <a href="#realisations" class="hover:text-white transition-colors">Réalisations</a>
+            <a href="#pourquoi-nous" class="hover:text-white transition-colors">Pourquoi nous</a>
+            <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+            <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
+          </div>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <p class="text-xs font-semibold text-white/60 uppercase tracking-widest mb-4">Contact</p>
+          <div class="flex flex-col gap-2.5 text-sm">
+            <a href="tel:0745270811" class="font-bold text-primary hover:text-white transition-colors">07 45 27 08 11</a>
+            <a href="mailto:DD.Multiservices@gmail.com" class="text-white/40 hover:text-white transition-colors">DD.Multiservices@gmail.com</a>
+            <p class="text-white/30">Bayeux, Calvados (14)</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="border-t border-white/8 py-5">
+    <div class="mx-auto max-w-300 px-6 flex flex-col items-center justify-between gap-3 md:flex-row text-xs text-white/25">
+      <p>&copy; 2026 DD.Multiservices — Bayeux, Normandie</p>
+      <div class="flex items-center gap-4">
+        <a href="/mentions-legales/" class="hover:text-white/50 transition-colors">Mentions légales</a>
+        <span class="text-white/10">|</span>
+        <span>Site par <a href="https://stacklab.fr" target="_blank" rel="noopener" class="text-white/40 hover:text-white transition-colors">Stacklab</a></span>
+      </div>
+    </div>
+  </div>
+</footer>

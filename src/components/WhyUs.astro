@@ -1,0 +1,58 @@
+---
+const points = [
+  {
+    title: "Matériel fourni",
+    description: "Pas besoin de vous équiper. On vient avec tout le matériel professionnel nécessaire.",
+    icon: `<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 6v16"/><path d="M16 14l8 8 8-8"/><rect x="8" y="22" width="32" height="20" rx="3"/><path d="M18 32h12"/><path d="M18 38h8"/></svg>`,
+  },
+  {
+    title: "Chantier laissé propre",
+    description: "En fin d'intervention, tout est nettoyé. Vous retrouvez un espace impeccable.",
+    icon: `<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M32 8l-4 12H20L16 8"/><path d="M20 20l-4 22h16l-4-22"/><path d="M18 30h12"/><path d="M19 36h10"/><path d="M14 8h20"/></svg>`,
+  },
+  {
+    title: "Évacuation des déchets",
+    description: "On ne laisse rien derrière nous. Déchets verts et encombrants évacués sur demande.",
+    icon: `<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 24a18 18 0 0036 0 18 18 0 00-36 0z"/><path d="M18 20l4 4-4 4"/><path d="M30 20l-4 4 4 4"/><path d="M14 32l20-16"/></svg>`,
+  },
+  {
+    title: "Réactivité",
+    description: "Intervention rapide et prise de rendez-vous simple. On s'adapte à votre emploi du temps.",
+    icon: `<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M26 4L14 26h10l-2 18L34 22H24l2-18z"/></svg>`,
+  },
+  {
+    title: "Devis gratuit",
+    description: "Un devis clair et sans engagement, envoyé rapidement après votre demande.",
+    icon: `<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="10" y="6" width="28" height="36" rx="3"/><path d="M18 16h12"/><path d="M18 24h12"/><path d="M18 32h8"/><path d="M30 6v8h8"/></svg>`,
+  },
+  {
+    title: "Proximité & confiance",
+    description: "Une entreprise locale, à votre écoute, qui s'engage sur la qualité de chaque intervention.",
+    icon: `<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 40l-8-8a8 8 0 1112-12l0 0a8 8 0 0112 12l-8 8-4 4-4-4z"/></svg>`,
+  },
+];
+---
+
+<section class="section-dark py-20 md:py-28" id="pourquoi-nous">
+  <div class="mx-auto max-w-300 px-6">
+    <div class="text-center mb-16">
+      <p class="section-label mb-3" data-reveal="up">Pourquoi nous choisir</p>
+      <h2 class="section-title section-title--light text-3xl md:text-5xl" data-reveal="up" data-delay="1">
+        Un service <em>simple et efficace</em>
+      </h2>
+      <p class="mt-4 text-white/60 max-w-lg mx-auto" data-reveal="up" data-delay="2">
+        De la prise de contact à la fin du chantier, on s'occupe de tout.
+      </p>
+    </div>
+
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {points.map((p, i) => (
+        <div class={`whyus-card group ${i % 2 === 0 ? 'service-card--a' : 'service-card--b'}`} data-reveal="up" data-delay={String(i + 1)}>
+          <div class="whyus-icon" set:html={p.icon} />
+          <h3 class="text-base font-semibold text-white mb-2" style="font-family: var(--font-heading);">{p.title}</h3>
+          <p class="text-sm leading-relaxed text-white/50">{p.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

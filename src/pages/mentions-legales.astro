@@ -1,0 +1,113 @@
+---
+import "../styles/global.css";
+import logo from "../assets/images/logo_dd_multiservices.png";
+import Footer from "../components/Footer.astro";
+---
+
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <title>Mentions légales — DD.Multiservices</title>
+    <meta name="robots" content="noindex" />
+  </head>
+  <body class="bg-neutral-50 text-neutral-900">
+
+    <!-- ── NAV ── -->
+    <nav class="nav scrolled">
+      <a href="/" class="nav-logo">
+        <img src={logo.src} alt="DD.Multiservices" />
+        <span>DD.Multiservices</span>
+      </a>
+      <a href="/" class="nav-cta">Retour au site</a>
+    </nav>
+
+    <main class="pt-32 pb-20">
+      <div class="mx-auto max-w-175 px-6">
+        <h1 class="section-title text-3xl md:text-4xl mb-12">Mentions <em>légales</em></h1>
+
+        <div class="space-y-10 text-sm leading-relaxed text-neutral-600">
+
+          <!-- 1. Éditeur -->
+          <section>
+            <h2 class="text-lg font-semibold text-neutral-900 mb-3" style="font-family: var(--font-heading);">1. Éditeur du site</h2>
+            <ul class="space-y-1">
+              <li><strong>Raison sociale :</strong> <!-- TODO: Nom légal --></li>
+              <li><strong>Statut :</strong> Auto-entrepreneur (micro-entreprise)</li>
+              <li><strong>SIRET :</strong> <!-- TODO: Numéro SIRET --></li>
+              <li><strong>Responsable de la publication :</strong> <!-- TODO: Nom et prénom --></li>
+              <li><strong>Adresse :</strong> <!-- TODO: Adresse complète -->, 14400 Bayeux</li>
+              <li><strong>Téléphone :</strong> 07 45 27 08 11</li>
+              <li><strong>Email :</strong> DD.Multiservices@gmail.com</li>
+            </ul>
+          </section>
+
+          <!-- 2. Hébergeur -->
+          <section>
+            <h2 class="text-lg font-semibold text-neutral-900 mb-3" style="font-family: var(--font-heading);">2. Hébergement</h2>
+            <ul class="space-y-1">
+              <li><strong>Hébergeur :</strong> OVH SAS</li>
+              <li><strong>Adresse :</strong> 2, rue Kellermann — 59100 Roubaix, France</li>
+              <li><strong>Téléphone :</strong> 1007</li>
+              <li><strong>Site web :</strong> ovh.com</li>
+            </ul>
+          </section>
+
+          <!-- 3. Propriété intellectuelle -->
+          <section>
+            <h2 class="text-lg font-semibold text-neutral-900 mb-3" style="font-family: var(--font-heading);">3. Propriété intellectuelle</h2>
+            <p>
+              L'ensemble du contenu de ce site (textes, images, logo, icônes, mise en page) est la propriété exclusive de DD.Multiservices ou de ses partenaires. Toute reproduction, représentation, modification ou adaptation, totale ou partielle, est interdite sans autorisation écrite préalable.
+            </p>
+          </section>
+
+          <!-- 4. Données personnelles -->
+          <section>
+            <h2 class="text-lg font-semibold text-neutral-900 mb-3" style="font-family: var(--font-heading);">4. Données personnelles</h2>
+            <p>
+              Les informations recueillies via le formulaire de contact sont destinées uniquement à DD.Multiservices pour le traitement de votre demande de devis. Elles ne sont ni cédées, ni vendues à des tiers.
+            </p>
+            <p class="mt-2">
+              Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi Informatique et Libertés, vous disposez d'un droit d'accès, de rectification, de suppression et d'opposition sur vos données personnelles. Pour exercer ces droits, contactez-nous à DD.Multiservices@gmail.com.
+            </p>
+          </section>
+
+          <!-- 5. Cookies -->
+          <section>
+            <h2 class="text-lg font-semibold text-neutral-900 mb-3" style="font-family: var(--font-heading);">5. Cookies</h2>
+            <p>
+              Ce site n'utilise pas de cookies de suivi ou publicitaires. Seuls des cookies techniques strictement nécessaires au fonctionnement du site peuvent être utilisés.
+            </p>
+          </section>
+
+          <!-- 6. Responsabilité -->
+          <section>
+            <h2 class="text-lg font-semibold text-neutral-900 mb-3" style="font-family: var(--font-heading);">6. Limitation de responsabilité</h2>
+            <p>
+              DD.Multiservices s'efforce d'assurer l'exactitude des informations diffusées sur ce site. Toutefois, il ne saurait être tenu responsable des omissions, inexactitudes ou erreurs contenues dans ces informations. L'utilisateur est seul responsable de l'utilisation qu'il fait des informations disponibles sur le site.
+            </p>
+          </section>
+
+          <!-- 7. Crédits -->
+          <section>
+            <h2 class="text-lg font-semibold text-neutral-900 mb-3" style="font-family: var(--font-heading);">7. Crédits</h2>
+            <p>
+              <strong>Conception et développement :</strong> <!-- TODO: Nom du développeur / agence -->
+            </p>
+            <p class="mt-1">
+              <strong>Photographies :</strong> <!-- TODO: Crédits photos ou "DD.Multiservices" -->
+            </p>
+          </section>
+
+        </div>
+      </div>
+    </main>
+
+    <Footer />
+  </body>
+</html>
