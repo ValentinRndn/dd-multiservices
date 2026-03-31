@@ -41,7 +41,10 @@ body {
   color: var(--color-neutral-900);
   line-height: 1.6;
   background: var(--color-neutral-50);
-  overflow-x: hidden;
+}
+
+html, body {
+  overflow-x: clip;
 }
 
 /* ==================== TYPOGRAPHY ==================== */
