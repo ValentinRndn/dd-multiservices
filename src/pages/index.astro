@@ -61,20 +61,21 @@ import Footer from "../components/Footer.astro";
     <nav class="nav">
       <a href="/" class="nav-logo">
         <img src={logo.src} alt="DD.Multiservices" />
-        <span>DD.Multiservices</span>
       </a>
       <div class="hidden md:flex items-center gap-8">
         <a href="#services" class="text-sm text-white/70 hover:text-white transition-colors no-underline">Services</a>
         <a href="#realisations" class="text-sm text-white/70 hover:text-white transition-colors no-underline">Réalisations</a>
         <a href="#faq" class="text-sm text-white/70 hover:text-white transition-colors no-underline">FAQ</a>
       </div>
-      <div class="hidden md:flex items-center gap-2">
+      <div class="hidden md:flex items-center gap-6">
+        <div class="socials-container flex items-center justify-center">
         <a href="https://www.instagram.com/dd.multiservices/" target="_blank" rel="noopener" class="nav-social" aria-label="Instagram">
           <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="10" y="10" width="28" height="28" rx="8"/><circle cx="24" cy="24" r="8"/><circle cx="33" cy="15" r="1.5" fill="currentColor" stroke="none"/></svg>
         </a>
         <a href="https://www.tiktok.com/@dd.multiservices" target="_blank" rel="noopener" class="nav-social" aria-label="TikTok">
           <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 8v24a6 6 0 1 1-6-6"/><path d="M20 8c0 0 0 8 10 10"/><path d="M30 18c2 1.5 4.5 2 6 2"/></svg>
         </a>
+      </div>
         <a href="#contact" class="nav-cta">Devis gratuit</a>
       </div>
       <a href="#contact" class="nav-cta md:hidden">Devis gratuit</a>
