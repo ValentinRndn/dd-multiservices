@@ -140,6 +140,28 @@ html, body {
   background: var(--color-primary-dark);
 }
 
+.nav-social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 7px;
+  border-radius: 0 10px 0 10px;
+  color: rgba(255, 255, 255, 0.6);
+  transition: color 0.2s, background 0.2s;
+}
+
+.nav-social:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-social svg {
+  width: 100%;
+  height: 100%;
+}
+
 /* ==================== HERO SECTION ==================== */
 
 .hero {
@@ -541,6 +563,32 @@ html, body {
 
 .section-dark .section-label {
   color: var(--color-primary);
+}
+
+/* ==================== SOCIAL ICONS ==================== */
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  border-radius: 0 12px 0 12px;
+  background: rgba(106, 174, 53, 0.15);
+  color: var(--color-primary);
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+
+.social-icon:hover {
+  background: var(--color-primary);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.social-icon svg {
+  width: 100%;
+  height: 100%;
 }
 
 /* ==================== SCROLL ANIMATIONS ==================== */
