@@ -20,15 +20,21 @@ const pinIcon = `<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stro
     <div class="grid gap-10 md:grid-cols-2 max-w-4xl mx-auto">
       <!-- Form -->
       <form class="space-y-4" id="contact-form" data-reveal="left">
+        <input type="hidden" name="access_key" value="863f8d4c-3102-48a5-8654-af88698370be" />
+        <input type="hidden" name="subject" value="Nouvelle demande de devis — DD.Multiservices" />
+        <input type="hidden" name="from_name" value="DD.Multiservices Site" />
+        <input type="checkbox" name="botcheck" class="hidden" style="display:none" />
         <div class="grid gap-4 sm:grid-cols-2">
           <input
             type="text"
+            name="nom"
             placeholder="Votre nom"
             required
             class="w-full rounded-xl border border-neutral-200 bg-neutral-50 px-4 py-3.5 text-sm text-neutral-900 placeholder:text-neutral-400 outline-none focus:border-primary transition-colors"
           />
           <input
             type="tel"
+            name="telephone"
             placeholder="Téléphone"
             required
             class="w-full rounded-xl border border-neutral-200 bg-neutral-50 px-4 py-3.5 text-sm text-neutral-900 placeholder:text-neutral-400 outline-none focus:border-primary transition-colors"
@@ -36,18 +42,20 @@ const pinIcon = `<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stro
         </div>
         <input
           type="email"
+          name="email"
           placeholder="Votre email"
           required
           class="w-full rounded-xl border border-neutral-200 bg-neutral-50 px-4 py-3.5 text-sm text-neutral-900 placeholder:text-neutral-400 outline-none focus:border-primary transition-colors"
         />
         <select
+          name="prestation"
           class="w-full rounded-xl border border-neutral-200 bg-neutral-50 px-4 py-3.5 text-sm text-neutral-400 outline-none focus:border-primary transition-colors appearance-none"
         >
           <option value="" disabled selected>Type de prestation</option>
           <option>Tonte de pelouse</option>
           <option>Taille de haies</option>
           <option>Débroussaillage</option>
-          <option>Nettoyage de gouttières</option>
+          <option>Nettoyage gouttières, terrasses & allées</option>
           <option>Enlèvement d'encombrants</option>
           <option>Évacuation déchets verts</option>
           <option>Débarras</option>
@@ -55,6 +63,7 @@ const pinIcon = `<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stro
           <option>Autre</option>
         </select>
         <textarea
+          name="message"
           placeholder="Décrivez votre besoin..."
           rows="4"
           class="w-full rounded-xl border border-neutral-200 bg-neutral-50 px-4 py-3.5 text-sm text-neutral-900 placeholder:text-neutral-400 outline-none focus:border-primary transition-colors resize-none"
@@ -65,7 +74,7 @@ const pinIcon = `<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stro
         >
           Envoyer ma demande de devis
         </button>
-        <p class="text-xs text-center text-neutral-400">Gratuit et sans engagement</p>
+        <p id="form-status" class="text-xs text-center text-neutral-400">Gratuit et sans engagement</p>
       </form>
 
       <!-- Contact info -->
@@ -82,7 +91,7 @@ const pinIcon = `<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stro
           <div class="service-icon shrink-0" set:html={emailIcon} />
           <div>
             <p class="text-sm text-neutral-400">Par email</p>
-            <a href="mailto:DD.Multiservices@gmail.com" class="text-base font-semibold text-neutral-900 hover:text-primary transition-colors">DD.Multiservices@gmail.com</a>
+            <a href="mailto:dd.multiservices.contact@gmail.com" class="text-base font-semibold text-neutral-900 hover:text-primary transition-colors">dd.multiservices.contact@gmail.com</a>
           </div>
         </div>
 
@@ -107,12 +116,38 @@ const pinIcon = `<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stro
 </section>
 
 <script>
-  const form = document.getElementById('contact-form');
-  form?.addEventListener('submit', (e) => {
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const status = document.getElementById('form-status') as HTMLElement;
+
+  form?.addEventListener('submit', async (e) => {
     e.preventDefault();
     const btn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
-    btn.textContent = '\u2713 Demande envoyée !';
+    const originalText = btn.textContent;
+    btn.textContent = 'Envoi en cours...';
     btn.disabled = true;
-    btn.style.opacity = '0.6';
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(Object.fromEntries(new FormData(form))),
+      });
+      const data = await res.json();
+
+      if (data.success) {
+        btn.textContent = '\u2713 Demande envoyée !';
+        btn.style.opacity = '0.6';
+        status.textContent = 'Merci ! Nous vous recontactons rapidement.';
+        status.style.color = '#6AAE35';
+        form.reset();
+      } else {
+        throw new Error();
+      }
+    } catch {
+      btn.textContent = originalText!;
+      btn.disabled = false;
+      status.textContent = 'Erreur lors de l\u2019envoi. Réessayez ou appelez-nous.';
+      status.style.color = '#CE1126';
+    }
   });
 </script>

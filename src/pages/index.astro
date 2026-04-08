@@ -1,6 +1,6 @@
 ---
 import "../styles/global.css";
-import logo from "../assets/images/logo_dd_multiservices.png";
+import logo from "../assets/images/logo_ddmultiservices.png";
 import heroBg from "../assets/images/hero1.jpg";
 import Services from "../components/Services.astro";
 import BeforeAfter from "../components/BeforeAfter.astro";
@@ -13,7 +13,7 @@ import Footer from "../components/Footer.astro";
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/png" href="/logo_dd_multiservices.png" />
+    <link rel="icon" type="image/png" href="/logo_ddmultiservices.png" />
     <meta name="viewport" content="width=device-width" />
     <meta name="google-site-verification" content="n00IEHo8lDw9sDHpZK_U2aF5wnZc-UV11sIYYEhvZsQ" />
     <meta name="generator" content={Astro.generator} />
@@ -33,7 +33,7 @@ import Footer from "../components/Footer.astro";
       "name": "DD.Multiservices",
       "description": "Entretien espaces verts, débarras et multiservices à Bayeux et dans le Calvados",
       "telephone": "+33745270811",
-      "email": "DD.Multiservices@gmail.com",
+      "email": "dd.multiservices.contact@gmail.com",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Bayeux",
@@ -86,22 +86,22 @@ import Footer from "../components/Footer.astro";
       <div class="hero-bg" style={`background-image: url(${heroBg.src})`}></div>
       <div class="hero-overlay"></div>
       <div class="hero-inner">
-        <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-1.5 text-xs text-white/70">
+        <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-1.5 text-xs text-white/70" data-hero data-delay="1">
           <span class="h-1.5 w-1.5 rounded-full bg-primary animate-pulse"></span>
           Bayeux & alentours — Intervention rapide
         </div>
 
-        <h1 class="hero-title">
+        <h1 class="hero-title" data-hero data-delay="2">
           Entretien extérieur,<br />débarras & multiservices<br /><em>à Bayeux et dans le Calvados.</em>
         </h1>
 
-        <p class="hero-description">
+        <p class="hero-description" data-hero data-delay="3">
           Tonte, taille de haies, débroussaillage, nettoyage de gouttières,
           débarras et évacuation de déchets. Intervention sur Bayeux, le Bessin,
           la Côte de Nacre et jusqu'à Caen. Matériel fourni, chantier laissé propre.
         </p>
 
-        <div class="hero-actions mb-8">
+        <div class="hero-actions mb-8" data-hero data-delay="4">
           <a href="#contact" class="btn-primary">
             Demander un devis gratuit
           </a>
@@ -110,7 +110,7 @@ import Footer from "../components/Footer.astro";
           </a>
         </div>
 
-        <div class="flex items-center gap-5 flex-wrap text-sm text-white/50">
+        <div class="flex items-center gap-5 flex-wrap text-sm text-white/50" data-hero data-delay="5">
           <span class="flex items-center gap-2">
             <span class="text-primary">&#10003;</span> Matériel fourni
           </span>
@@ -160,6 +160,13 @@ import Footer from "../components/Footer.astro";
         { threshold: 0.08, rootMargin: '0px 0px -60px 0px' }
       );
       document.querySelectorAll('[data-reveal]').forEach((el) => observer.observe(el));
+
+      // Hero entrance animation on page load
+      requestAnimationFrame(() => {
+        document.querySelectorAll('[data-hero]').forEach((el) => {
+          el.classList.add('visible');
+        });
+      });
     </script>
   </body>
 </html>
